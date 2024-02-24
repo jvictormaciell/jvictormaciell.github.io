@@ -11,66 +11,48 @@
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             background-color: #f4f4f4;
         }
 
         header {
             background-color: #e0e0e0;
             color: rgb(0, 0, 0);
-            padding: 20px;
+            padding: 10px;
             text-align: center;
-            width: 100%;
-            margin-bottom: 20px;
-        }
-
-        .logo {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         .logo img {
-            width: 400px;
-            margin-bottom: 10px;
-            /* Ajuste na margem inferior do ícone */
+            width: 80px;
+            /* Reduzindo o tamanho do logotipo para dispositivos móveis */
+            margin-bottom: 5px;
         }
 
         .logo span {
-            font-size: 1.5em;
+            font-size: 1em;
+            /* Reduzindo o tamanho da fonte do título */
         }
 
         .slogan {
-            font-style: italic;
-            margin-top: -10px;
-            /* Ajuste para posicionar a frase acima do ícone */
+            font-size: 0.8em;
+            /* Reduzindo o tamanho da fonte do slogan */
+            margin-top: -5px;
         }
 
         .container {
             background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
             border-radius: 8px;
-            padding: 50px;
-            width: 430px;
-            text-align: center;
-        }
-
-        h1 {
-            text-align: center;
+            padding: 20px;
+            margin: 10px;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
-            text-align: left;
+            margin-bottom: 10px;
         }
 
         button {
-            display: inline-block;
-            margin-top: 10px;
+            display: block;
+            margin: 10px auto;
             padding: 8px 15px;
             background-color: #020eee;
             color: white;
@@ -86,57 +68,20 @@
 
         .parceiros {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 10px;
             margin-top: 20px;
         }
 
         .parceiro img {
-            transition: transform 0.3s ease;
-            width: 100px;
-            /* Ajuste a largura conforme necessário */
-        }
-
-        .parceiro:hover img {
-            transform: scale(1.1);
-            /* Aumenta o tamanho do ícone em 10% */
-        }
-
-        .logo img {
-            transition: transform 0.3s ease;
-            width: 120px;
-            /* Tamanho original do logotipo */
-        }
-
-        .logo img:hover {
-            transform: scale(1.5);
-            /* Aumenta o tamanho do logotipo em 50% ao passar o mouse */
-        }
-
-        .logo span {
-            font-weight: bold;
-            /* Deixa o título "REPRODUCTION" em negrito */
-            transition: color 0.3s ease;
-        }
-
-        .logo span:hover {
-            color: blue;
-            /* Muda a cor para azul ao passar o mouse */
-        }
-
-        .logo .slogan {
-            transition: color 0.3s ease;
-        }
-
-        .logo .slogan:hover {
-            color: red;
-            /* Muda a cor para vermelho ao passar o mouse */
+            width: 80px;
+            /* Reduzindo o tamanho das imagens dos parceiros */
         }
 
         .dados-sistema {
-            font-family: 'Poppins', sans-serif;
             text-align: center;
-            margin: 40px 0;
+            margin: 20px 0;
         }
 
         .estatistica {
@@ -144,30 +89,23 @@
         }
 
         .numero {
-            display: block;
-            font-size: 3em;
+            font-size: 2em;
             font-weight: bold;
             color: #000;
             animation: aumentar 1s ease-in-out infinite alternate;
         }
 
         .descricao {
-            display: block;
-            font-size: 1.2em;
+            font-size: 0.8em;
             color: #555;
         }
 
         .imagem-touro {
-            width: 100%;
-            /* Ajuste conforme necessário */
-            max-width: 300px;
-            /* Ajuste conforme necessário */
+            width: 80%;
+            max-width: 200px;
             margin-top: 20px;
-            transition: transform 0.3s ease;
-        }
-
-        .imagem-touro:hover {
-            transform: scale(1.1);
+            margin: auto;
+            /* Centralizando a imagem */
         }
 
         @keyframes aumentar {
@@ -180,18 +118,11 @@
             }
         }
 
-
-
         .rodape {
             background-color: #000;
             color: #fff;
             padding: 20px 0;
             text-align: center;
-            width: 100vw;
-            left: 50%;
-            right: 50%;
-            margin-left: 50vw;
-            margin-right: 50vw;
         }
 
         .conteudo-rodape p {
@@ -213,51 +144,19 @@
             color: #aaa;
         }
 
-
-        /* Estilos padrão para desktop */
-        .logo img {
-            width: 100px;
-            /* Ajuste conforme necessário para desktop */
-        }
-
         /* Estilos para dispositivos com largura até 768px */
         @media (max-width: 768px) {
-            .logo img {
-                width: 50px;
-                /* Ajuste conforme necessário para dispositivos móveis */
-            }
-
-            .logo span,
-            .logo .slogan,
-            .dados-sistema .numero,
-            .dados-sistema .descricao {
-                font-size: smaller;
-                /* Reduz o tamanho da fonte para dispositivos móveis */
-            }
-
-            .parceiros,
-            .estatistica,
-            .redes-sociais {
-                flex-direction: column;
-                /* Empilha os elementos verticalmente */
-                align-items: center;
+            .container {
+                width: 90%;
+                /* Reduzindo a largura do container */
             }
 
             .parceiro img,
             .imagem-touro {
-                width: 80%;
-                /* Ajuste a largura dos ícones e imagens para dispositivos móveis */
+                width: 100%;
+                /* Ajuste a largura das imagens para dispositivos móveis */
+                max-width: none;
             }
-        }
-
-        /* Estilos para dispositivos com largura até 480px */
-        @media (max-width: 480px) {
-            .logo img {
-                width: 40px;
-                /* Ajuste conforme necessário para dispositivos menores */
-            }
-
-            /* Outros ajustes de estilo podem ser adicionados aqui */
         }
     </style>
 </head>
