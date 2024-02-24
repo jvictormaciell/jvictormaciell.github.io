@@ -22,17 +22,20 @@
         }
 
         .logo img {
-            width: 80px; /* Reduzindo o tamanho do logotipo para dispositivos móveis */
-            margin-bottom: 5px; 
+            width: 80px;
+            /* Reduzindo o tamanho do logotipo para dispositivos móveis */
+            margin-bottom: 5px;
         }
 
         .logo span {
-            font-size: 1em; /* Reduzindo o tamanho da fonte do título */
+            font-size: 1em;
+            /* Reduzindo o tamanho da fonte do título */
         }
 
         .slogan {
-            font-size: 0.8em; /* Reduzindo o tamanho da fonte do slogan */
-            margin-top: -5px; 
+            font-size: 0.8em;
+            /* Reduzindo o tamanho da fonte do slogan */
+            margin-top: -5px;
         }
 
         .container {
@@ -72,8 +75,10 @@
         }
 
         .parceiro img {
-            width: 100px; /* Reduzindo o tamanho das imagens dos parceiros */
-            max-width: 100%; /* Garantindo que as imagens não ultrapassem seu tamanho original */
+            width: 80px;
+            /* Ajuste o tamanho dos logos conforme necessário */
+            max-width: 100%;
+            /* Garantindo que as imagens não ultrapassem seu tamanho original */
         }
 
         .dados-sistema {
@@ -101,7 +106,8 @@
             width: 80%;
             max-width: 200px;
             margin-top: 20px;
-            margin: auto; /* Centralizando a imagem */
+            margin: auto;
+            /* Centralizando a imagem */
         }
 
         @keyframes aumentar {
@@ -143,13 +149,24 @@
         /* Estilos para dispositivos com largura até 768px */
         @media (max-width: 768px) {
             .container {
-                width: 90%; /* Reduzindo a largura do container */
+                width: 100%;
+                /* Reduzindo a largura do container */
             }
 
-            .parceiro img,
-            .imagem-touro {
-                width: 50%; /* Ajuste a largura das imagens para dispositivos móveis */
+            .parceiros {
+                flex-direction: row;
+                /* Altera a direção para lado a lado em dispositivos móveis */
+            }
+
+            .parceiro img {
+                width: 40px;
+                /* Ajuste a largura dos logos dos parceiros para dispositivos móveis */
                 max-width: none;
+            }
+
+            .imagem-touro {
+                width: 90%;
+                /* Ajuste a largura da imagem do touro para dispositivos móveis */
             }
         }
     </style>
