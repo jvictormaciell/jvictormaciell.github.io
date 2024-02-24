@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Genética</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #e0e0e0;
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 400px;
+            margin-bottom: 10px;
+            /* Ajuste na margem inferior do ícone */
+        }
+
+        .logo span {
+            font-size: 1.5em;
+        }
+
+        .slogan {
+            font-style: italic;
+            margin-top: -10px;
+            /* Ajuste para posicionar a frase acima do ícone */
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.13);
+            border-radius: 8px;
+            padding: 50px;
+            width: 430px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+
+        button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #020eee;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .parceiros {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .parceiro img {
+            transition: transform 0.3s ease;
+            width: 100px;
+            /* Ajuste a largura conforme necessário */
+        }
+
+        .parceiro:hover img {
+            transform: scale(1.1);
+            /* Aumenta o tamanho do ícone em 10% */
+        }
+
+        .logo img {
+            transition: transform 0.3s ease;
+            width: 120px;
+            /* Tamanho original do logotipo */
+        }
+
+        .logo img:hover {
+            transform: scale(1.5);
+            /* Aumenta o tamanho do logotipo em 50% ao passar o mouse */
+        }
+
+        .logo span {
+            font-weight: bold;
+            /* Deixa o título "REPRODUCTION" em negrito */
+            transition: color 0.3s ease;
+        }
+
+        .logo span:hover {
+            color: blue;
+            /* Muda a cor para azul ao passar o mouse */
+        }
+
+        .logo .slogan {
+            transition: color 0.3s ease;
+        }
+
+        .logo .slogan:hover {
+            color: red;
+            /* Muda a cor para vermelho ao passar o mouse */
+        }
+
+        .dados-sistema {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .estatistica {
+            margin: 20px 0;
+        }
+
+        .numero {
+            display: block;
+            font-size: 3em;
+            font-weight: bold;
+            color: #000;
+            animation: aumentar 1s ease-in-out infinite alternate;
+        }
+
+        .descricao {
+            display: block;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .imagem-touro {
+            width: 100%;
+            /* Ajuste conforme necessário */
+            max-width: 300px;
+            /* Ajuste conforme necessário */
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .imagem-touro:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes aumentar {
+            from {
+                transform: scale(1);
+            }
+
+            to {
+                transform: scale(1.1);
+            }
+        }
+
+
+
+        .rodape {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-left: 50vw;
+            margin-right: 50vw;
+        }
+
+        .conteudo-rodape p {
+            margin: 5px 0;
+        }
+
+        .redes-sociais {
+            margin-top: 10px;
+        }
+
+        .icone-social {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .icone-social:hover {
+            color: #aaa;
+        }
+
+
+        /* Estilos padrão para desktop */
+        .logo img {
+            width: 100px;
+            /* Ajuste conforme necessário para desktop */
+        }
+
+        /* Estilos para dispositivos com largura até 768px */
+        @media (max-width: 768px) {
+            .logo img {
+                width: 50px;
+                /* Ajuste conforme necessário para dispositivos móveis */
+            }
+
+            .logo span,
+            .logo .slogan,
+            .dados-sistema .numero,
+            .dados-sistema .descricao {
+                font-size: smaller;
+                /* Reduz o tamanho da fonte para dispositivos móveis */
+            }
+
+            .parceiros,
+            .estatistica,
+            .redes-sociais {
+                flex-direction: column;
+                /* Empilha os elementos verticalmente */
+                align-items: center;
+            }
+
+            .parceiro img,
+            .imagem-touro {
+                width: 80%;
+                /* Ajuste a largura dos ícones e imagens para dispositivos móveis */
+            }
+        }
+
+        /* Estilos para dispositivos com largura até 480px */
+        @media (max-width: 480px) {
+            .logo img {
+                width: 40px;
+                /* Ajuste conforme necessário para dispositivos menores */
+            }
+
+            /* Outros ajustes de estilo podem ser adicionados aqui */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <section class="logo">
+            <img src="https://i.ibb.co/f1kfXz1/REPRODUCTION.png" alt="Logo da Empresa" width="50">
+            <span>REPRODUCTION</span>
+            <p class="slogan">PRODUZINDO O FUTURO</p>
+        </section>
+        <nav class="parceiros">
+            <a href="#" class="parceiro">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAk1BMVEUAMXP///8AFGjn6u8AL3IAI20AK3COm7YALXEAKW8AIWwAJ24AEGcAHmv3+fsAG2oADmfk6O7Y3ebf4+vK0d0ANXbx8/cAHWwAGGoAC2ZNZJEaP3uXo7wsSYEAAGS/x9ZecppAWYqFlLGxu811hae9xtUTOnlHYI4gQ31DW4wAAFt+jaxZbJZqfKFkd544Uoagq8LC60gTAAAE0UlEQVR4nO3ceVebTBTHcUgGZAkSTc1Sja32qUu11ff/6koGksPce5Pw1OAMc37fv3o4Lnx62TJRgwAhhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEHI+ZXsH+i59yGzvQr/l6/B9Ynsn+qwChuGNx0QN9JmYr89Dr4k7oK/EFtBPogH0kUiAYXjmGZEBfSPmTwxYEUe2d+t0iUCfiKkM9IeYXu8BhuG9F8QDQD+IFDj2jUiBX3798IvIgCt16xWRAScqCFYeEdPruQkcbVZplD9EBlzWy1BqSogvAyXuA0rEpdU9/cfiBwIsWwuJPhBTCly2V0o9mGJ6dQhYNf05bGJMgJcUWF1RCfG/QREZcMQX8zmxtLCn/xgDTqR3K9TtYIlxQIArDcxT+oFDJdKLTHOIli+vEf3QYRIZsL7IlL/D8JG+76RW34ZHZOdgmWw2b4AVkU1xeEQGLFrAMHxmRHpfdJ3IgbtDdB9xQqb422kiA2YEWBFj+klDIrLbRA1ctIDhjO//cIixGhOgPgeLP61t40S4+TPi4rN3vVtJYk5w1kzQBLKDdBMl/ik+d9e7FacEWEhAPVXOnH4hRAenGKfmITpbcOC8Bsbr55x++ooQvzs3RQasn2SK721goGe3uR698Qc4SnRsinFsAi+aCe4Bhh2Ibp2LFNicg/smGIpElw/UOCHAqL5NGMCrGqi21yNOpJcbd4gUeJHvBbbvKG/0iqpGjhK7AfXLX+OZYM4eXRwlxvGFCUxr4KtwiAbt/ws2Q0eJcUqBescJUE8wMYbNz8MqtXSOmFBgrIHZUeBdfdNPyNdjxFfLP4+aROIEOwD1BFX8Rp9u2IFql5hkJnCcC8CH+iIT8wmqyWW4Pkr8apGYFAQoTbABpsIEp5fVvwXipStEBmwm+JUDk1wArrTknBOnjhAZsH6SMYDnB4DbRxiBuHKCmEQzMkEOnF/XwEgATnan2/maroZvTlDrRAZMhUP0ANC4njywd6bsn4sMmAiHaFfgDb/5qyUlSg8IPcaAgQB8aoDt0/VZAko/aZosrBI5UB+i0VHgowTUP4mh6IGaFBaJe4DZowDMDWAmAPUEVcouN4zI3/XoK5WZ37p55RCZwFwAChOsf0los+2JXVFtEek3PgQ0ht0cZhMZuL0w2ScmpXmINusv0XNHoLEc8z7dAUUivdzcfQJRjboDMwFoLKm9r/SX3E5VIprf7ROI9FZ8AKgKA5gdBUpEesT0TkzIjXiuauCdAFx0AxpLbAJxSYlsvfykwPJjQOM9bTbBrsQep8iAV8IhWr9SMI+uBjg9ChSJ7FzsbYocqHfGnGBnoL6KBhS4e0XZyjyheyTSJ8VmVySgkoDGm4TNbwPTZW6ZaF6UeyOyCQZlVFUawKflZltmAB+neps5wVu9jb5VsSUWkVlBX0yJS5EnBoY3Z3Xtbe/3etN9+0N/1tvO2sCLl3qbCKyIzae0Ix9yeqKiQNuxZciPAukLUvudlsjWTVyILWB9BEiX99zodES2uOdKpyI6CzwVUUl3ZVc6CdG124QZW935/0U/5mOHm11//E/6ZCOXK73/m0UIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhGz0F378aE3sDzCmAAAAAElFTkSuQmCC"
+                    alt="Empresa 1">
+            </a>
+            <a href="#" class="parceiro">
+                <img src="https://www.absglobal.com/br/wp-content/uploads/sites/16/2020/03/LogoRGB.png" alt="Empresa 2">
+            </a>
+            <a href="#" class="parceiro">
+                <img src="https://semex.com.br/sites/all/themes/themeSemex/logo-og-200.png" alt="Empresa 3">
+            </a>
+            <a href="#" class="parceiro">
+                <img src="https://images.tcdn.com.br/img/img_prod/774746/1694393994_banner-mobile.jpg" alt="Empresa 4">
+            </a>
+        </nav>
+
+    </header>
+
+    <div class="container">
+        <h1>Seleção de Genética</h1>
+
+
+        <form id="formSelecao">
+            <label for="empresa">
+                Empresa:
+                <select id="empresa" name="empresa">
+                    <option value="ambas">TODAS</option>
+                    <option value="alta">ALTA</option>
+                    <option value="semex">SEMEX</option>
+                    <option value="ABS">ABS</option>
+                    <option value="CRV">CRV</option>
+                    <option value="GENEX">GENEX</option>
+
+                </select>
+            </label>
+
+
+
+            <label for="pesoNascerBaixo">
+                <input type="checkbox" id="pesoNascerBaixo" name="pesoNascerBaixo"> Quero um <strong>bezerro(a) mais
+                    leve</strong> ao
+                nascer, evitando problemas de parto.
+            </label>
+
+            <label for="pesoaodesmame">
+                <input type="checkbox" id="pesoaodesmame" name="pesoaodesmame"> Quero que o bezerro(a) tenha um
+                <strong>peso maior
+                    ao desmame.</strong>
+            </label>
+
+            <label for="pesoaoano">
+                <input type="checkbox" id="pesoaoano" name="pesoaoano"> Quero que os animais ganhem <strong>mais peso ao
+                    ano de idade.</strong>
+            </label>
+
+            <label for="parto">
+                <input type="checkbox" id="parto" name="parto"> Desejo ter fêmeas com <strong>facilidade de
+                    parto.</strong>
+            </label>
+
+            <label for="carcaca">
+                <input type="checkbox" id="carcaca" name="carcaca"> Quero que o animal venha a ter <strong>maior peso de
+                    carcaça.</strong>
+            </label>
+
+            <label for="marmoreio">
+                <input type="checkbox" id="marmoreio" name="marmoreio"> Quero uma carne com <strong>maior gordura
+                    intramuscular</strong> (marmoreio.)
+            </label>
+
+            <label for="aol">
+                <input type="checkbox" id="aol" name="aol"> Busco uma <strong>maior área de olho de lombo.</strong>
+            </label>
+
+            <button type="button" onclick="buscarGenetica()">Buscar</button>
+            <button type="button" onclick="limparSelecao()">Apagar</button>
+        </form>
+
+        <div id="resultado"></div>
+    </div>
+
+
+    <section class="dados-sistema">
+        <div class="estatistica">
+            <span class="numero">600</span>
+            <span class="descricao">touros analisados</span>
+        </div>
+        <div class="estatistica">
+            <span class="numero">180</span>
+            <span class="descricao">touros catalogados</span>
+        </div>
+        <div class="estatistica">
+            <span class="numero">7</span>
+            <span class="descricao">variáveis produtivas de interesse na raça ANGUS</span>
+        </div>
+        <!-- Adicione aqui o PNG do touro ANGUS -->
+        <img src="https://gondwana-uae.com/wp-content/uploads/2022/08/ANGUS.png" alt="Touro ANGUS" class="imagem-touro">
+    </section>
+
+    <footer class="rodape">
+        <div class="conteudo-rodape">
+            <p>© 2024 REPRODUCTION. Todos os direitos reservados.</p>
+            <p>Conecte-se conosco nas redes sociais.</p>
+            <!-- Adicione aqui os links para as redes sociais -->
+            <div class="redes-sociais">
+                <a href="#" class="icone-social">Facebook</a>
+                <a href="#" class="icone-social">Twitter</a>
+                <a href="#" class="icone-social">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+
+        // Exemplo de array de touros com características genéticas
+        const touros = [
+            { id: 1, nome: 'Touro A', empresa: 'alta', caracteristicas: ['pesoNascerBaixo', 'pesoaoano', 'parto'] },
+            { id: 2, nome: 'Touro B', empresa: 'semex', caracteristicas: ['carcaca', 'aol', 'pesoNascerBaixo'] },
+            { id: 3, nome: 'VPJ Black Rocky', empresa: 'CRV', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 4, nome: 'Baldridge Cyclone', empresa: 'CRV', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaoano', 'carcaca', 'marmoreio', 'aol'] },
+            { id: 5, nome: 'CIA Azul', empresa: 'CRV', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 6, nome: 'Red Label (RA)', empresa: 'CRV', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 7, nome: 'Yunan', empresa: 'CRV', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 8, nome: 'Baldridge Romeo', empresa: 'CRV', caracteristicas: ['pesoNascerBaixo', 'pesoaoano', 'carcaca', 'marmoreio', 'aol'] },
+            { id: 9, nome: 'Connealy Century', empresa: 'CRV', caracteristicas: ['parto', 'pesoaoano', 'carcaca', 'aol'] },
+            { id: 25, nome: 'Connely wagon', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'aol'] },
+            { id: 26, nome: 'Connely alfa', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'aol'] },
+            { id: 27, nome: 'Connely fortune', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'marmoreio', 'aol'] },
+            { id: 28, nome: 'Viper', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'aol'] },
+            { id: 29, nome: 'Connely big shark', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'aol'] },
+            { id: 30, nome: 'Hot Shot', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'marmoreio', 'aol'] },
+            { id: 31, nome: 'KB-Imperial', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'aol'] },
+            { id: 32, nome: 'Baldridge Ceo', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'marmoreio', 'aol'] },
+            { id: 33, nome: 'Baldridge Fort knox', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'marmoreio', 'aol'] },
+            { id: 34, nome: 'DF Natural', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'aol'] },
+            { id: 35, nome: 'Connely tank', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'marmoreio', 'aol'] },
+            { id: 36, nome: 'Baldridge Gator', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'marmoreio', 'aol'] },
+            { id: 37, nome: 'Connely V-8', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca'] },
+            { id: 38, nome: 'Marda Ace', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'aol'] },
+            { id: 39, nome: 'Highbanks Southside', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'aol'] },
+            { id: 40, nome: 'Tucson', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'marmoreio', 'aol'] },
+            { id: 41, nome: 'BT Top Notch', empresa: 'CRV', caracteristicas: ['pesoaoano', 'carcaca', 'aol'] },
+            { id: 42, nome: 'PWM Target', empresa: 'CRV', caracteristicas: ['pesoaoano'] },
+            { id: 43, nome: 'Koupals B&B Cannon', empresa: 'CRV', caracteristicas: ['pesoaoano', 'aol'] },
+            { id: 44, nome: 'Far Ten Billion', empresa: 'CRV', caracteristicas: ['pesoaoano'] },
+            { id: 45, nome: 'MSU CRV Dark Knight', empresa: 'CRV', caracteristicas: ['pesoaoano'] },
+            { id: 46, nome: 'Tradição Azul', empresa: 'CRV', caracteristicas: ['marmoreio', 'aol'] },
+            { id: 47, nome: 'Gran Lider', empresa: 'CRV', caracteristicas: ['aol'] },
+            { id: 48, nome: 'VPJ Groove', empresa: 'CRV', caracteristicas: ['aol'] },
+            { id: 49, nome: 'S2 Integrity', empresa: 'CRV', caracteristicas: ['aol'] },
+
+            //SEMEX
+            { id: 50, nome: 'Rockefeller RED', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo', 'parto', 'carcaca'] },
+            { id: 51, nome: 'Entense', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 52, nome: 'Columbus', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo', 'carcaca'] },
+            { id: 53, nome: 'High Cotton', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 54, nome: 'Assurance', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo', 'parto', 'carcaca'] },
+            { id: 55, nome: 'Steadfast', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 56, nome: 'Powerpoint', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 57, nome: 'Truck', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 58, nome: 'Sheik RED', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 59, nome: 'Rock', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaoano', 'carcaca'] },
+            { id: 60, nome: 'Navajo', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 61, nome: 'Mogul', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 62, nome: 'Remixado', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 63, nome: 'Transcend', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 64, nome: 'Rock star', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 65, nome: 'Nevada', empresa: 'SEMEX', caracteristicas: ['parto'] },
+            { id: 66, nome: 'Commander', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 67, nome: 'Trail boss', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 68, nome: 'Trail king', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 69, nome: 'Choice', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaoano', 'carcaca'] },
+            { id: 70, nome: 'Home time', empresa: 'SEMEX', caracteristicas: ['parto', 'carcaca'] },
+            { id: 71, nome: 'Monument', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 72, nome: 'Reinforce', empresa: 'SEMEX', caracteristicas: ['parto', 'carcaca'] },
+            { id: 73, nome: 'Watchtower', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaoano', 'carcaca'] },
+            { id: 74, nome: 'High value', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'carcaca'] },
+            { id: 75, nome: 'Presence', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame'] },
+            { id: 76, nome: 'Maxima', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 77, nome: 'Revenant', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 78, nome: 'Endorse', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 79, nome: 'Powerhouse', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 80, nome: 'Growth fund', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 81, nome: 'Unique', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 82, nome: 'Phenom', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'carcaca'] },
+            { id: 83, nome: 'Vanguard', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 84, nome: 'Tanker', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 85, nome: 'Reno', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 86, nome: 'Upgrade', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 87, nome: 'Dual threat', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 88, nome: 'Checkmate', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 89, nome: 'Merit', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 90, nome: 'Leander', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 91, nome: 'Sierra', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 92, nome: 'Option', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 93, nome: 'Envest', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 94, nome: 'Moneyball', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 95, nome: 'Blazer', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 96, nome: 'Preference', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'carcaca'] },
+            { id: 97, nome: 'Force field', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 98, nome: 'Big river', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 99, nome: 'Transcend', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 100, nome: 'Magnum', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 101, nome: 'Asteroid', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 102, nome: 'Icon', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'carcaca'] },
+            { id: 103, nome: 'Hollywood', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame'] },
+            { id: 104, nome: 'Mito', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame'] },
+            { id: 105, nome: 'Potency', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 106, nome: 'Superb', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 107, nome: 'Goliath', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 108, nome: 'Entense', empresa: 'SEMEX', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 109, nome: 'Rock star', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 110, nome: 'Accrual', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 111, nome: 'Kansas', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 112, nome: 'Topeka', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 113, nome: 'Pillar', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 114, nome: 'Big top', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 115, nome: 'Valente', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 116, nome: 'Raindance', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 117, nome: 'Choice', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 118, nome: 'Home time', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 119, nome: 'Monument', empresa: 'SEMEX', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 120, nome: 'The force', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 121, nome: 'High Grade', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 122, nome: 'Black hills', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 123, nome: 'Immense', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 124, nome: 'Homegrown', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 125, nome: 'Simple man RED', empresa: 'SEMEX', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+
+            //ABS
+
+            { id: 126, nome: 'PROFITMAKER', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 127, nome: 'FINISHED PRODUCT', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 128, nome: 'ENERGIZE', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 129, nome: 'NO WORRIES', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 130, nome: 'DEFINITIVE', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano'] },
+            { id: 131, nome: 'CERTAINTY', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 132, nome: 'COMSTOCK', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 133, nome: 'FULL TANK', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame'] },
+            { id: 134, nome: 'JET STREAM', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame'] },
+            { id: 135, nome: 'FULL POWER', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 136, nome: 'FULL FORCE', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 137, nome: 'MEDIATOR', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 138, nome: 'PATRIARCH', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 139, nome: 'SAFE DEPOSIT', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 140, nome: 'CRUSHER', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 141, nome: 'CONSTITUTION', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 142, nome: 'CROSSBOW', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 143, nome: 'BLACK BANDOLIER', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 144, nome: 'CHARISMA', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 145, nome: 'RENOMADO', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 146, nome: 'FINALIST', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 147, nome: 'IMPRESSIVE', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame'] },
+            { id: 148, nome: 'RITO RELEVANT', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 149, nome: 'STASH', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 150, nome: 'DUELO', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 151, nome: 'DOM FLOR', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 152, nome: 'BLINDSIDE', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 153, nome: 'WEST COAST', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 154, nome: 'HOMEGROWN', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame'] },
+            { id: 155, nome: 'MAGNITUDE', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 156, nome: 'MANHATTAN', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo'] },
+            { id: 157, nome: 'PROFIT DRIVEN', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto'] },
+            { id: 158, nome: 'HERCULES', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 159, nome: 'RESERVE', empresa: 'ABS', caracteristicas: ['pesoNascerBaixo', 'parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 160, nome: 'MC CLINTOCK', empresa: 'ABS', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 161, nome: 'ON POINT', empresa: 'ABS', caracteristicas: ['parto'] },
+            { id: 162, nome: 'RANSOM', empresa: 'ABS', caracteristicas: ['parto'] },
+            { id: 163, nome: 'CASH4LIFE', empresa: 'ABS', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 164, nome: 'Stagecoach', empresa: 'ABS', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 165, nome: 'POWERBALL', empresa: 'ABS', caracteristicas: ['parto'] },
+            { id: 166, nome: 'FIELD GENERAL', empresa: 'ABS', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 167, nome: 'MEGABALL', empresa: 'ABS', caracteristicas: ['parto', 'pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 168, nome: 'HOMEPLACE', empresa: 'ABS', caracteristicas: ['parto'] },
+            { id: 169, nome: 'DOMINANCE', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 170, nome: 'STOCK FUND', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 171, nome: 'PLUS MORE', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 172, nome: 'PORTSIDE', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 173, nome: 'GRATITUDE', empresa: 'ABS', caracteristicas: ['pesoaodesmame'] },
+            { id: 174, nome: 'RESPONSE', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 175, nome: 'DIESEL', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 176, nome: 'COMMODORE', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 177, nome: 'ELEVATE', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 178, nome: 'BOMBER', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 179, nome: 'SPUR', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 180, nome: 'PROPULSION', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'carcaca'] },
+            { id: 181, nome: 'FREE STYLE', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 182, nome: 'GROW FUND 4920', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 183, nome: 'SKOL', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 184, nome: 'BLACK MAGIC', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 185, nome: 'ALTERNATIVE', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 186, nome: 'EXCALIBER', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 187, nome: 'GROW FUND 5550', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 188, nome: 'IDENTIFIED', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano', 'carcaca'] },
+            { id: 189, nome: 'RAMESSES', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 190, nome: 'RAMESSES 9030', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 191, nome: 'GRAND PRAIRIE', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 192, nome: 'STRONGBOX', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 193, nome: 'EPIC GAIN', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 194, nome: 'EPICENTER', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 195, nome: 'WALL STREET', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 196, nome: 'CAPROCK', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 197, nome: 'KRASSO', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 198, nome: 'ADIDO', empresa: 'ABS', caracteristicas: ['pesoaoano'] },
+            { id: 199, nome: 'INERTIA', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 200, nome: 'COWBOY UP', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 201, nome: 'DOSE DUPLA', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] },
+            { id: 202, nome: 'WRECKING BALL', empresa: 'ABS', caracteristicas: ['pesoaodesmame', 'pesoaoano'] }
+            // Continue adicionando mais touros conforme necessário
+
+
+        ];
+
+        // Função para buscar genética com base nas seleções do usuário
+        function buscarGenetica() {
+            // Obter valores selecionados
+            const empresaSelecionada = document.getElementById('empresa').value;
+            const caracteristicasSelecionadas = [];
+            document.querySelectorAll('#formSelecao input[type=checkbox]:checked').forEach(checkbox => {
+                caracteristicasSelecionadas.push(checkbox.name);
+            });
+
+            // Filtrar touros com base na empresa e características
+            const tourosFiltrados = touros.filter(touro => {
+                const empresaCorrespondente = empresaSelecionada === 'ambas' || touro.empresa === empresaSelecionada;
+                const caracteristicasCorrespondentes = caracteristicasSelecionadas.every(caracteristica =>
+                    touro.caracteristicas.includes(caracteristica)
+                );
+                return empresaCorrespondente && caracteristicasCorrespondentes;
+            });
+
+            // Exibir os touros filtrados
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = ''; // Limpar resultados anteriores
+            tourosFiltrados.forEach((touro, index) => {
+                const touroDiv = document.createElement('div');
+                let medalha = '';
+                let background = '';
+                if (index === 0) {
+                    medalha = '🥇';
+                    background = 'background: linear-gradient(to right, #ffd700, #ffec8b);';
+                } else if (index === 1) {
+                    medalha = '🥈';
+                    background = 'background: linear-gradient(to right, #c0c0c0, #f0e68c);';
+                } else if (index === 2) {
+                    medalha = '🥉';
+                    background = 'background: linear-gradient(to right, #cd7f32, #f4a460);';
+                }
+
+                touroDiv.style = `padding: 5px; ${background}`;
+                touroDiv.innerHTML = `${medalha} TOURO <strong style="font-size: larger; color: navy;">${touro.nome}</strong> | Empresa <strong style="color: red;">${touro.empresa}</strong>`;
+                resultadoDiv.appendChild(touroDiv);
+            });
+        }
+
+
+
+        // Função para limpar seleção
+        function limparSelecao() {
+            document.getElementById('formSelecao').reset();
+            document.getElementById('resultado').innerHTML = '';
+        }
+
+    </script>
+</body>
+
+</html>
